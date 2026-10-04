@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Digital COPACI</title>
+
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ==========================================
+     PANTALLA PRINCIPAL DE BIENVENIDA
+=========================================== -->
+
+<section id="pantallaInicio"
+         class="pantalla-inicio">
+
+
+    <div class="tarjeta-inicio">
+
+
+        <div class="icono-copaci">
+            🏘️
+        </div>
+
+
+        <h1>
+            Gestión Digital COPACI
+        </h1>
+
+
+        <h2>
+            Comité de Participación Ciudadana
+        </h2>
+
+
+        <p>
+            Bienvenido al sistema digital para la
+            gestión, organización y participación
+            de nuestra comunidad.
+        </p>
+
+
+        <button class="boton-entrar"
+                onclick="entrarSistema()">
+
+            Ingresar al sistema
+
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ==========================================
+     ENCABEZADO DEL SISTEMA
+=========================================== -->
+
+<header>
+
+    <h1>
+        Gestión Digital COPACI
+    </h1>
+
+    <p>
+        Comité de Participación Ciudadana
+    </p>
+
+</header>
+
+
+
+<!-- ==========================================
+     MENÚ
+=========================================== -->
+
+<nav>
+
+    <button onclick="mostrar('inicio')">
+        🏠 Inicio
+    </button>
+
+
+    <button onclick="mostrar('ciudadanos')">
+        👥 Ciudadanos
+    </button>
+
+
+    <button onclick="mostrar('solicitudes')">
+        📋 Solicitudes
+    </button>
+
+
+    <button onclick="mostrar('reuniones')">
+        📅 Reuniones
+    </button>
+
+
+    <button onclick="mostrar('avisos')">
+        📢 Avisos
+    </button>
+
+</nav>
+
+
+
+<div class="contenedor">
+
+
+<!-- ==========================================
+     INICIO
+=========================================== -->
+
+<section id="inicio"
+         class="seccion activa">
+
+
+    <h2>
+        Panel principal
+    </h2>
+
+
+    <p>
+        Bienvenido al sistema de Gestión
+        Digital del COPACI.
+    </p>
+
+
+    <div class="tarjetas">
+
+
+        <div class="tarjeta">
+
+            <h3>
+                Ciudadanos
+            </h3>
+
+            <div class="numero"
+                 id="totalCiudadanos">
+
+                0
+
+            </div>
+
+            <p>
+                Registrados
+            </p>
+
+        </div>
+
+
+
+        <div class="tarjeta">
+
+            <h3>
+                Solicitudes
+            </h3>
+
+            <div class="numero"
+                 id="totalSolicitudes">
+
+                0
+
+            </div>
+
+            <p>
+                Recibidas
+            </p>
+
+        </div>
+
+
+
+        <div class="tarjeta">
+
+            <h3>
+                Reuniones
+            </h3>
+
+            <div class="numero"
+                 id="totalReuniones">
+
+                0
+
+            </div>
+
+            <p>
+                Programadas
+            </p>
+
+        </div>
+
+
+
+        <div class="tarjeta">
+
+            <h3>
+                Avisos
+            </h3>
+
+            <div class="numero">
+                3
+            </div>
+
+            <p>
+                Publicados
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     CIUDADANOS
+=========================================== -->
+
+<section id="ciudadanos"
+         class="seccion">
+
+
+    <div class="formulario">
+
+
+        <h2>
+            Registro de ciudadanos
+        </h2>
+
+
+        <div class="campo">
+
+            <label>
+                Nombre completo
+            </label>
+
+            <input
+                type="text"
+                id="nombreCiudadano"
+                placeholder="Escribe el nombre">
+
+        </div>
+
+
+
+        <div class="campo">
+
+            <label>
+                Edad
+            </label>
+
+            <input
+                type="number"
+                id="edadCiudadano"
+                placeholder="Edad">
+
+        </div>
+
+
+
+        <div class="campo">
+
+            <label>
+                Colonia
+            </label>
+
+            <input
+                type="text"
+                id="coloniaCiudadano"
+                placeholder="Colonia">
+
+        </div>
+
+
+
+        <div class="campo">
+
+            <label>
+                Teléfono
+            </label>
+
+            <input
+                type="tel"
+                id="telefonoCiudadano"
+                placeholder="Teléfono">
+
+        </div>
+
+
+
+        <button
+            class="boton"
+            onclick="agregarCiudadano()">
+
+            Registrar ciudadano
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="tabla-contenedor">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Nombre
+                    </th>
+
+                    <th>
+                        Edad
+                    </th>
+
+                    <th>
+                        Colonia
+                    </th>
+
+                    <th>
+                        Teléfono
+                    </th>
+
+                    <th>
+                        Acción
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="tablaCiudadanos">
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     SOLICITUDES
+=========================================== -->
+
+<section id="solicitudes"
+         class="seccion">
+
+
+    <div class="formulario">
+
+
+        <h2>
+            Registrar solicitud
+        </h2>
+
+
+        <div class="campo">
+
+            <label>
+                Ciudadano
+            </label>
+
+            <input
+                type="text"
+                id="solicitante"
+                placeholder="Nombre del ciudadano">
+
+        </div>
+
+
+
+        <div class="campo">
+
+            <label>
+                Tipo de solicitud
+            </label>
+
+
+            <select id="tipoSolicitud">
+
+                <option>
+                    Servicios públicos
+                </option>
+
+                <option>
+                    Seguridad
+                </option>
+
+                <option>
+                    Alumbrado público
+                </option>
+
+                <option>
+                    Limpieza
+                </option>
+
+                <option>
+                    Agua potable
+                </option>
+
+                <option>
+                    Otro
+                </option>
+
+            </select>
+
+
+        </div>
+
+
+
+        <div class="campo">
+
+            <label>
+                Descripción
+            </label>
+
+
+            <textarea
+                id="descripcion"
+                placeholder="Describe la solicitud">
+            </textarea>
+
+
+        </div>
+
+
+
+        <button
+            class="boton"
+            onclick="agregarSolicitud()">
+
+            Registrar solicitud
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="tabla-contenedor">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Ciudadano
+                    </th>
+
+                    <th>
+                        Tipo
+                    </th>
+
+                    <th>
+                        Descripción
+                    </th>
+
+                    <th>
+                        Estado
+                    </th>
+
+                    <th>
+                        Acción
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="tablaSolicitudes">
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     REUNIONES
+=========================================== -->
+
+<section id="reuniones"
+         class="seccion">
+
+
+    <div class="formulario">
+
+
+        <h2>
+            Programar reunión
+        </h2>
+
+
+        <div class="campo">
+
+            <label>
+                Fecha
+            </label>
+
+            <input
+                type="date"
+                id="fechaReunion">
+
+        </div>
+
+
+
+        <div class="campo">
+
+            <label>
+                Hora
+            </label>
+
+            <input
+                type="time"
+                id="horaReunion">
+
+        </div>
+
+
+
+        <div class="campo">
+
+            <label>
+                Lugar
+            </label>D
+
+            <input
+                type="text"
+                id="lugarReunion"
+                placeholder="Lugar de la reunión">
+
+        </div>
+
+
+
+        <div class="campo">
+
+            <label>
+                Tema
+            </label>
+
+            <input
+                type="text"
+                id="temaReunion"
+                placeholder="Tema de la reunión">
+
+        </div>
+
+
+
+        <button
+            class="boton"
+            onclick="agregarReunion()">
+
+            Programar reunión
+
+        </button>
+
+
+    </div>
+
+
+
+    <div class="tabla-contenedor">
+
+
+        <table>
+
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Fecha
+                    </th>
+
+                    <th>
+                        Hora
+                    </th>
+
+                    <th>
+                        Lugar
+                    </th>
+
+                    <th>
+                        Tema
+                    </th>
+
+                    <th>
+                        Acción
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="tablaReuniones">
+
+            </tbody>
+
+
+        </table>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ==========================================
+     AVISOS
+=========================================== -->
+
+<section id="avisos"
+         class="seccion">
+
+
+    <h2>
+        Avisos comunitarios
+    </h2>
+
+
+
+    <div class="aviso">
+
+        <h3>
+            📢 Reunión del COPACI
+        </h3>
+
+        <p>
+            Se invita a los ciudadanos a participar
+            en la próxima reunión comunitaria.
+        </p>
+
+    </div>
+
+
+
+    <div class="aviso">
+
+        <h3>
+            💡 Alumbrado público
+        </h3>
+
+        <p>
+            Se estarán recibiendo reportes sobre
+            lámparas que necesiten mantenimiento.
+        </p>
+
+    </div>
+
+
+
+    <div class="aviso">
+
+        <h3>
+            🧹 Jornada de limpieza
+        </h3>
+
+        <p>
+            Próximamente se realizará una jornada
+            de limpieza en las áreas comunes
+            de la comunidad.
+        </p>
+
+    </div>
+
+
+</section>
+
+
+</div>
+
+
+
+<!-- ==========================================
+     PIE DE PÁGINA
+=========================================== -->
+
+<footer>
+
+    <p>
+        © 2026 Gestión Digital COPACI
+    </p>
+
+    <p>
+        Participación ciudadana para una
+        mejor comunidad
+    </p>
+
+</footer>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+=========================================== -->
+
+<script>
+
+
+    /* =====================================
+       PANTALLA DE INICIO
+    ===================================== */
+
+    function entrarSistema() {
+
+        document.getElementById(
+            "pantallaInicio"
+        ).style.display = "none";
+
+    }
+
+
+
+    /* =====================================
+       VARIABLES
+    ===================================== */
+
+    let ciudadanos = [];
+
+    let solicitudes = [];
+
+    let reuniones = [];
+
+
+
+    /* =====================================
+       CAMBIAR SECCIÓN
+    ===================================== */
+
+    function mostrar(id) {
+
+        let secciones =
+            document.querySelectorAll(".seccion");
+
+
+        secciones.forEach(
+            function(seccion) {
+
+                seccion.classList.remove(
+                    "activa"
+                );
+
+            }
+        );
+
+
+        document.getElementById(id)
+            .classList.add("activa");
+
+    }
+
+
+
+    /* =====================================
+       AGREGAR CIUDADANO
+    ===================================== */
+
+    function agregarCiudadano() {
+
+
+        let nombre =
+            document.getElementById(
+                "nombreCiudadano"
+            ).value;
+
+
+        let edad =
+            document.getElementById(
+                "edadCiudadano"
+            ).value;
+
+
+        let colonia =
+            document.getElementById(
+                "coloniaCiudadano"
+            ).value;
+
+
+        let telefono =
+            document.getElementById(
+                "telefonoCiudadano"
+            ).value;
+
+
+
+        if (
+            nombre === "" ||
+            edad === "" ||
+            colonia === "" ||
+            telefono === ""
+        ) {
+
+            alert(
+                "Completa todos los campos."
+            );
+
+            return;
+
+        }
+
+
+
+        ciudadanos.push({
+
+            nombre: nombre,
+
+            edad: edad,
+
+            colonia: colonia,
+
+            telefono: telefono
+
+        });
+
+
+
+        actualizarCiudadanos();
+
+
+
+        document.getElementById(
+            "nombreCiudadano"
+        ).value = "";
+
+
+        document.getElementById(
+            "edadCiudadano"
+        ).value = "";
+
+
+        document.getElementById(
+            "coloniaCiudadano"
+        ).value = "";
+
+
+        document.getElementById(
+            "telefonoCiudadano"
+        ).value = "";
+
+    }
+
+
+
+    /* =====================================
+       ACTUALIZAR CIUDADANOS
+    ===================================== */
+
+    function actualizarCiudadanos() {
+
+
+        let tabla =
+            document.getElementById(
+                "tablaCiudadanos"
+            );
+
+
+        tabla.innerHTML = "";
+
+
+
+        ciudadanos.forEach(
+            function(persona, index) {
+
+
+                tabla.innerHTML += `
+
+                    <tr>
+
+                        <td>
+                            ${persona.nombre}
+                        </td>
+
+                        <td>
+                            ${persona.edad}
+                        </td>
+
+                        <td>
+                            ${persona.colonia}
+                        </td>
+
+                        <td>
+                            ${persona.telefono}
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="eliminar"
+                                onclick="
+                                    eliminarCiudadano(
+                                        ${index}
+                                    )
+                                ">
+
+                                Eliminar
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        );
+
+
+
+        document.getElementById(
+            "totalCiudadanos"
+        ).textContent =
+            ciudadanos.length;
+
+    }
+
+
+
+    /* =====================================
+       ELIMINAR CIUDADANO
+    ===================================== */
+
+    function eliminarCiudadano(index) {
+
+        ciudadanos.splice(index, 1);
+
+        actualizarCiudadanos();
+
+    }
+
+
+
+    /* =====================================
+       AGREGAR SOLICITUD
+    ===================================== */
+
+    function agregarSolicitud() {
+
+
+        let solicitante =
+            document.getElementById(
+                "solicitante"
+            ).value;
+
+
+        let tipo =
+            document.getElementById(
+                "tipoSolicitud"
+            ).value;
+
+
+        let descripcion =
+            document.getElementById(
+                "descripcion"
+            ).value;
+
+
+
+        if (
+            solicitante === "" ||
+            descripcion === ""
+        ) {
+
+            alert(
+                "Completa todos los campos."
+            );
+
+            return;
+
+        }
+
+
+
+        solicitudes.push({
+
+            solicitante:
+                solicitante,
+
+            tipo:
+                tipo,
+
+            descripcion:
+                descripcion,
+
+            estado:
+                "Pendiente"
+
+        });
+
+
+
+        actualizarSolicitudes();
+
+
+
+        document.getElementById(
+            "solicitante"
+        ).value = "";
+
+
+        document.getElementById(
+            "descripcion"
+        ).value = "";
+
+    }
+
+
+
+    /* =====================================
+       ACTUALIZAR SOLICITUDES
+    ===================================== */
+
+    function actualizarSolicitudes() {
+
+
+        let tabla =
+            document.getElementById(
+                "tablaSolicitudes"
+            );
+
+
+        tabla.innerHTML = "";
+
+
+
+        solicitudes.forEach(
+            function(solicitud, index) {
+
+
+                tabla.innerHTML += `
+
+                    <tr>
+
+                        <td>
+                            ${solicitud.solicitante}
+                        </td>
+
+                        <td>
+                            ${solicitud.tipo}
+                        </td>
+
+                        <td>
+                            ${solicitud.descripcion}
+                        </td>
+
+                        <td>
+                            ${solicitud.estado}
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="eliminar"
+                                onclick="
+                                    eliminarSolicitud(
+                                        ${index}
+                                    )
+                                ">
+
+                                Eliminar
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        );
+
+
+
+        document.getElementById(
+            "totalSolicitudes"
+        ).textContent =
+            solicitudes.length;
+
+    }
+
+
+
+    /* =====================================
+       ELIMINAR SOLICITUD
+    ===================================== */
+
+    function eliminarSolicitud(index) {
+
+        solicitudes.splice(index, 1);
+
+        actualizarSolicitudes();
+
+    }
+
+
+
+    /* =====================================
+       AGREGAR REUNIÓN
+    ===================================== */
+
+    function agregarReunion() {
+
+
+        let fecha =
+            document.getElementById(
+                "fechaReunion"
+            ).value;
+
+
+        let hora =
+            document.getElementById(
+                "horaReunion"
+            ).value;
+
+
+        let lugar =
+            document.getElementById(
+                "lugarReunion"
+            ).value;
+
+
+        let tema =
+            document.getElementById(
+                "temaReunion"
+            ).value;
+
+
+
+        if (
+            fecha === "" ||
+            hora === "" ||
+            lugar === "" ||
+            tema === ""
+        ) {
+
+            alert(
+                "Completa todos los campos."
+            );
+
+            return;
+
+        }
+
+
+
+        reuniones.push({
+
+            fecha:
+                fecha,
+
+            hora:
+                hora,
+
+            lugar:
+                lugar,
+
+            tema:
+                tema
+
+        });
+
+
+
+        actualizarReuniones();
+
+
+
+        document.getElementById(
+            "fechaReunion"
+        ).value = "";
+
+
+        document.getElementById(
+            "horaReunion"
+        ).value = "";
+
+
+        document.getElementById(
+            "lugarReunion"
+        ).value = "";
+
+
+        document.getElementById(
+            "temaReunion"
+        ).value = "";
+
+    }
+
+
+
+    /* =====================================
+       ACTUALIZAR REUNIONES
+    ===================================== */
+
+    function actualizarReuniones() {
+
+
+        let tabla =
+            document.getElementById(
+                "tablaReuniones"
+            );
+
+
+        tabla.innerHTML = "";
+
+
+
+        reuniones.forEach(
+            function(reunion, index) {
+
+
+                tabla.innerHTML += `
+
+                    <tr>
+
+                        <td>
+                            ${reunion.fecha}
+                        </td>
+
+                        <td>
+                            ${reunion.hora}
+                        </td>
+
+                        <td>
+                            ${reunion.lugar}
+                        </td>
+
+                        <td>
+                            ${reunion.tema}
+                        </td>
+
+                        <td>
+
+                            <button
+                                class="eliminar"
+                                onclick="
+                                    eliminarReunion(
+                                        ${index}
+                                    )
+                                ">
+
+                                Eliminar
+
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        );
+
+
+
+        document.getElementById(
+            "totalReuniones"
+        ).textContent =
+            reuniones.length;
+
+    }
+
+
+
+    /* =====================================
+       ELIMINAR REUNIÓN
+    ===================================== */
+
+    function eliminarReunion(index) {
+
+        reuniones.splice(index, 1);
+
+        actualizarReuniones();
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>
